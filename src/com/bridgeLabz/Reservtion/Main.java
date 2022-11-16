@@ -1,6 +1,8 @@
 package com.bridgeLabz.Reservtion;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
 
 public class Main {
 
@@ -30,6 +32,32 @@ public class Main {
         hotels.add(hotel_10);
         System.out.println("...................display hotels...............");
         System.out.println(hotels);
+        
+        int choice;
+        Scanner sc =new Scanner(System.in);
+        do{
+            System.out.println(" 1. enter for check available");
+            System.out.println(" 2. enter for all display");
+            System.out.println(" 0. enter for exit");
+            choice =sc.nextInt();
+            switch (choice){
+                case 1:
+                    System.out.println("Enter customer type");
+                    String customerType =sc.nextLine();
+                    System.out.println("Enter date format(01/01/2000)");
+                    String date_1 =sc.nextLine();
+                    System.out.println("Enter date format(01/01/2000)");
+                    String date_2 =sc.nextLine();
+                   check.checkAvailable(hotels,customerType,date_1,date_2);
+                   break;
+                case 2:
+                    Iterator<Hotel>iterator = hotels.iterator();
+                    while (iterator.hasNext()){
+                        Hotel hotel =iterator.next();
+                        System.out.println(hotel);
+                    }
+            }
+        }while (choice!=0);
 
 	}
 
